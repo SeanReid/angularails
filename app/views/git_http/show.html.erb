@@ -9,6 +9,10 @@
 				</span>
 				<input type="text" class="form-control" placeholder="Git Username" ng-model="username">
       </div>
+      <div class="alertalert-danger" ng-show="errorMessage">
+      	<strong><i class="glyphicon glyphicon-warning-sign"></i> Error!</strong>
+      	{{ errorMessage }}
+      </div>
     </form>
 
     <ul class="list-group">
