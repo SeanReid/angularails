@@ -16,8 +16,9 @@
     </form>
 
     <ul class="list-group">
+    	<h3 ng-show="found">{{ repos.length }} repos found</h3>
     	<li class="list-goup-item" ng-repeat="repo in repos">
-    		<h4 class="list-roup-item-heading">{{ repo.full_name }}</h4>
+    		<h4 class="list-roup-item-heading">{{ repo.name }}</h4>
     		<p class="list-group-item-text text-muted">{{ repo.url }}</p>
     	</li>
     </ul>
