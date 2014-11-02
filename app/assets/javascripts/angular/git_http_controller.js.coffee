@@ -6,12 +6,16 @@ AngulaRails.controller "GitHttpController", ($scope, $http) ->
 		$scope.errorMessage = ""
 		$scope.found = false
 		url = "https://api.github.com/users/#{$scope.username}/repos"
-		$http({ method: "GET", url: url })
-		  .success (data) ->
+		$.ajax
+		  type: "GET"
+		  url: url
+		  success: (data) ->
 		  	$scope.searching = false
 		  	$scope.repos = data
 		  	$scope.found = true
-		  .error (sata, status) ->
-		  	if status == 404
-		  		$scope.searching = false
+		  	$scope.$apply()
+		  error: (error) ->
+		  	$scope.searching = false
+		  	if error.status == 404
 		  		$scope.errorMessage = "Not Found"
+		  		$scope.$apply()
